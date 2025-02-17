@@ -1,0 +1,21 @@
+<div class="schedule-container">
+  <div class="schedule-card">
+    <h2>Расписание доступа</h2>
+    <div class="schedule-list">
+      <div class="schedule-item" *ngFor="let day of days()">
+        <div class="day-label">{{ day }}</div>
+        <div class="time-inputs">
+          <input type="time" [(ngModel)]="schedule()[day].start" required />
+          <span class="separator">—</span>
+          <input type="time" [(ngModel)]="schedule()[day].end" required />
+        </div>
+      </div>
+    </div>
+    <div class="button-group">
+      <button class="save-button" (click)="save()">Сохранить</button>
+      <button class="check-button" (click)="checkAccessNow()">
+        Проверить доступ сейчас
+      </button>
+    </div>
+  </div>
+</div>
