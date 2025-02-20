@@ -36,7 +36,7 @@ export class ScheduleComponent implements OnInit {
     });
   }
 
-  save(callback?: () => void) {
+  save(callback?: () => void, showAlert: boolean = true) {
     this.isSaving.set(true);
     const updated: Record<string, string> = {};
     for (const day of this.days()) {
@@ -50,7 +50,9 @@ export class ScheduleComponent implements OnInit {
     this.api.updateSchedule(updated).subscribe({
       next: () => {
         this.isSaving.set(false);
-        alert('✅ Расписание сохранено!');
+        if (showAlert) {
+          alert('✅ Расписание сохранено!');
+        }
         if (callback) callback();
       },
       error: () => {
@@ -66,11 +68,11 @@ export class ScheduleComponent implements OnInit {
         next: (res: any) => alert(res.message),
         error: (err) => alert(err.error?.message || 'Ошибка проверки доступа'),
       });
-    });
+    }, false); 
   }
 
   logout() {
     this.api.logout();
-    this.router.navigate(['/login']); // Перенаправляем на страницу входа
+    this.router.navigate(['/login']); 
   }
 }
