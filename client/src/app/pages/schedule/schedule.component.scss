@@ -99,6 +99,14 @@
         box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
       }
     }
+    .logout-button {
+      background: #dc3545;
+      color: #fff;
+
+      &:hover {
+        background: #c82333;
+      }
+    }
 
     .check-button {
       background: #ffc107;

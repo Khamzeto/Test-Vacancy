@@ -12,10 +12,17 @@
       </div>
     </div>
     <div class="button-group">
-      <button class="save-button" (click)="save()">Сохранить</button>
-      <button class="check-button" (click)="checkAccessNow()">
+      <button class="save-button" (click)="save()" [disabled]="isSaving()">
+        Сохранить
+      </button>
+      <button
+        class="check-button"
+        (click)="checkAccessNow()"
+        [disabled]="isSaving()"
+      >
         Проверить доступ сейчас
       </button>
+      <button class="logout-button" (click)="logout()">Выйти</button>
     </div>
   </div>
 </div>
