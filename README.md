@@ -98,13 +98,12 @@ ng serve
 
 ## **3. Конфигурация**
 
-Если сервер работает не на `http://localhost:5004/`, настройте API-адрес в файле `client/src/environments/environment.ts`:
+Если сервер работает не на `http://localhost:5004/`, настройте API-адрес в файле `client/src/services/api.service.ts`:
 
 ```ts
-export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:5004/api',
-};
+export class ApiService {
+  private baseUrl = 'http://localhost:5004/api';
+  private jwtToken = signal<string | null>(null);
 ```
 
 ---
